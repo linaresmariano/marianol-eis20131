@@ -3,6 +3,16 @@ require_relative './code_breaker'
 
 describe CodeBreaker do
 
+	describe 'new' do
+		it 'throws error when the word contains characters that are not letters' do
+			lambda{CodeBreaker.new("dfsda9023+.,", 5)}.should raise_exception(WordError)
+		end
+
+		it 'ok when word contains only letters' do
+			lambda{CodeBreaker.new("hola", 5)}.should_not raise_exception(WordError)
+		end
+	end
+
   describe 'guess(a_letter)' do
 
 		describe "when the letter belongs to missing word" do
@@ -11,7 +21,12 @@ describe CodeBreaker do
 				before(:each) do
 					@code_breaker = CodeBreaker.new("murcielago", 5)
 					@initial_life = @code_breaker.life
-					@resultado = @code_breaker.guess("m")
+					@adivine = @code_breaker.guess("m")
+					@resultado = @code_breaker.build_string_showing_correct_letters
+				end
+
+				it "assert true, guessed letter" do
+					@adivine.should eq true
 				end
 
 				it "returns a string which includes the guessed letter in the correct place and asterisks in the spaces left" do
@@ -27,7 +42,12 @@ describe CodeBreaker do
 				before(:each) do
 					@code_breaker = CodeBreaker.new("otorrinolaringologia", 5)
 					@initial_life = @code_breaker.life
-					@resultado = @code_breaker.guess("o")
+					@adivine = @code_breaker.guess("o")
+					@resultado = @code_breaker.build_string_showing_correct_letters
+				end
+
+				it "assert true, guessed letter" do
+					@adivine.should eq true
 				end
 
 				it "returns a string which includes the guessed letters in the correct place and asterisks in the spaces left" do
@@ -44,11 +64,16 @@ describe CodeBreaker do
 					@code_breaker = CodeBreaker.new("murcielago", 5)
 					@initial_life = @code_breaker.life
 					@code_breaker.guess("u")
-					@result = @code_breaker.guess("l")
+					@adivine = @code_breaker.guess("l")
+					@resultado = @code_breaker.build_string_showing_correct_letters
+				end
+
+				it "assert true, guessed letter" do
+					@adivine.should eq true
 				end
 
 				it "returns a string which includes the guessed letters in the correct place and asterisks in the spaces left" do
-					@result.should eq "*u****l***"
+					@resultado.should eq "*u****l***"
 				end
 
 				it "shouldn't decrement life" do
@@ -63,12 +88,8 @@ describe CodeBreaker do
 
 				it "should throw LoserException" do
 					code_breaker = CodeBreaker.new("murcielago", 1)
-					begin
-						resultado = code_breaker.guess("j")
-						false.should eq true
-					rescue LoserException
-						true.should eq true
-					end
+
+					lambda{code_breaker.guess("j")}.should raise_exception(LoserException)
 				end
 			end
 
@@ -77,7 +98,12 @@ describe CodeBreaker do
 				before(:each) do
 					@code_breaker = CodeBreaker.new("murcielago", 5)
 					@initial_life = @code_breaker.life
-					@resultado = @code_breaker.guess("j")
+					@adivine = @code_breaker.guess("j")
+					@resultado = @code_breaker.build_string_showing_correct_letters
+				end
+
+				it "assert false, guessed letter" do
+					@adivine.should eq false
 				end
 
 				it "should return a string which isn't the letter you had put previously" do
@@ -93,12 +119,8 @@ describe CodeBreaker do
 		describe "when it's the last letter to guess and it's correct" do
 			it "should throw WinnerException" do
 				code_breaker = CodeBreaker.new("j", 5)
-				begin
-					code_breaker.guess("j")
-					false.should eq true
-				rescue WinnerException
-					true.should eq true
-				end
+
+				lambda{code_breaker.guess("j")}.should raise_exception(WinnerException)
 			end
 		end
 	end

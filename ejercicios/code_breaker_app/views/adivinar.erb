@@ -1,0 +1,26 @@
+<html>
+	<head>
+	</head>
+	<body>
+		
+		<h1>Code Breaker</h1>
+		
+		<form action="/adivinar" method="get">
+  			Letra: <input type="text" name="l" maxlength="1" autofocus><br>
+  			<input type="submit" value="Submit">
+		</form>
+		
+		<h2>Estado:</h2>
+		<p> <%= @state %> </p>
+		
+		<h2>Resultado</h2>
+		<p> <%= @msg %> </p>
+		<p> <%= @result %> </p>
+		
+		<h2>Lives remaining:</h2>
+		<p> <%= @lifes %> </p>
+		
+	</body>
+</html>
+
+
