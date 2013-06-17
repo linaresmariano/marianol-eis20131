@@ -1,0 +1,9 @@
+Nombre del proyecto grupal: Money Calendar
+Integrantes del grupo: Eiroa Mauro, Linares Mariano
+Trello: https://trello.com/board/money-calendar
+Repositorio: https://github.com/eiroa/moneyCalendar
+Travis: https://travis-ci.org/eiroa/moneyCalendar
+Staging: http://moneycalendar-staging.herokuapp.com/
+Production: http://moneycalendar.herokuapp.com/
+Video de la review: https://www.youtube.com/watch?v=BXiVMrN3mVQ
+Otros links relevantes: 
