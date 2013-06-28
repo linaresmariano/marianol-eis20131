@@ -5,5 +5,7 @@ Repositorio: https://github.com/eiroa/moneyCalendar
 Travis: https://travis-ci.org/eiroa/moneyCalendar
 Staging: http://moneycalendar-staging.herokuapp.com/
 Production: http://moneycalendar.herokuapp.com/
-Video de la review: https://www.youtube.com/watch?v=BXiVMrN3mVQ
-Otros links relevantes: 
+Dominio para el proyecto: www.moneycalendar.com.ar
+Video, review #2: https://www.youtube.com/watch?v=BXiVMrN3mVQ
+Video, review #3: https://www.youtube.com/watch?v=YxwYOhtM9-E
+Doc en Google: https://docs.google.com/document/d/1_OS4hcnQMALfHAmwsaDJbbaw8uR4VZdaG48g1d_3x6k/edit?usp=sharing
